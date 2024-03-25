@@ -1,0 +1,14 @@
+release/background.o
+release/bullet.o
+release/enemy.o
+release/game.o
+release/gameover.o
+release/main.o
+release/mainwindow.o
+release/player.o
+release/moc_background.o
+release/moc_bullet.o
+release/moc_enemy.o
+release/moc_gameover.o
+release/moc_mainwindow.o
+release/moc_player.o
