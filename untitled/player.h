@@ -12,6 +12,8 @@ class Player: public QObject, public QGraphicsPixmapItem
 private:
     int health;
     int score;
+    QGraphicsTextItem *healthscore = new QGraphicsTextItem;
+    QGraphicsTextItem *scorenum = new QGraphicsTextItem;
     
 public:
     Player();
@@ -21,6 +23,8 @@ public:
 
 public:
     void keyPressEvent(QKeyEvent * event);
+
+    static Player& getScore();
     
     void displayHealth() {
         // Update health display
@@ -42,8 +46,8 @@ public:
     
 public slots:
     void createEnemy();
-    void decrease();
-    void increase();
+    void decrease(int health);
+    void increase(int score);
     
 signals:
     void healthChanged(int newHealth);

@@ -6,6 +6,7 @@ release/gameover.o
 release/main.o
 release/mainwindow.o
 release/player.o
+release/score.o
 release/moc_background.o
 release/moc_bullet.o
 release/moc_enemy.o

@@ -10,6 +10,9 @@
 #include <QSoundEffect>
 #include <QMessageBox>
 
+Player& player = Player::getScore();
+
+
 Player::Player() {
 
     sound=new QMediaPlayer;
@@ -22,25 +25,21 @@ Player::Player() {
 
 
 }
-void Player::decrease() {
-    score--;
-    emit scoreChanged(score);
-    
-    if (health > 0) {
-        health--;
-        emit healthChanged(health);
-    }
-    
-    if (health < 1) {
-        emit gameOver(score);
+void Player::decrease(int health)
+{
+    health--;
+    healthscore->setPlainText("Health: " + QString::number(health));
+
+    if (health <= 0) {
+        gameOver();
     }
 }
 
-void Player::increase() {
+void Player::increase(int score)
+{
     score++;
-    emit scoreChanged(score);
+    scorenum->setPlainText("Score: " + QString::number(score));
 }
-
 void Player::keyPressEvent(QKeyEvent *event)
 {
     // *******  Event Handling for the Player ********
@@ -65,7 +64,12 @@ void Player::keyPressEvent(QKeyEvent *event)
 
     }
 
+}
 
+Player& Player::getScore()
+{
+    static Player currentscore;
+    return currentscore;
 }
 
 

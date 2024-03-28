@@ -45,7 +45,9 @@ constexpr auto qt_meta_stringdata_CLASSPlayerENDCLASS = QtMocHelpers::stringData
     "finalScore",
     "createEnemy",
     "decrease",
-    "increase"
+    "health",
+    "increase",
+    "score"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -72,8 +74,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSPlayerENDCLASS[] = {
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        8,    0,   59,    2, 0x0a,    7 /* Public */,
-       9,    0,   60,    2, 0x0a,    8 /* Public */,
-      10,    0,   61,    2, 0x0a,    9 /* Public */,
+       9,    1,   60,    2, 0x0a,    8 /* Public */,
+      11,    1,   63,    2, 0x0a,   10 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -82,8 +84,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSPlayerENDCLASS[] = {
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   10,
+    QMetaType::Void, QMetaType::Int,   12,
 
        0        // eod
 };
@@ -110,8 +112,10 @@ Q_CONSTINIT const QMetaObject Player::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'decrease'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'increase'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
     nullptr
 } };
@@ -126,8 +130,8 @@ void Player::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 1: _t->scoreChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 2: _t->gameOver((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 3: _t->createEnemy(); break;
-        case 4: _t->decrease(); break;
-        case 5: _t->increase(); break;
+        case 4: _t->decrease((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->increase((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

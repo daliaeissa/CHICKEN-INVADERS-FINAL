@@ -18,7 +18,8 @@ SOURCES += \
     gameover.cpp \
     main.cpp \
     mainwindow.cpp \
-    player.cpp
+    player.cpp \
+    score.cpp
 
 HEADERS += \
     background.h \
@@ -27,7 +28,8 @@ HEADERS += \
     game.h \
     gameover.h \
     mainwindow.h \
-    player.h
+    player.h \
+    score.h
 
 FORMS += \
     gameover.ui \

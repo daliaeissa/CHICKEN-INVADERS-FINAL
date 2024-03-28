@@ -41,7 +41,6 @@ void Enemy:: move()
             delete colliding_items2[i];
             delete this;
             g->hide();
-
             go->show();
             this->hide();
 

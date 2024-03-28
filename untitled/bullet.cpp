@@ -1,4 +1,5 @@
-#include"bullet.h"
+#include "bullet.h"
+#include "score.h"
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QList>
@@ -26,6 +27,22 @@ Bullet::Bullet():QObject(), QGraphicsPixmapItem() {
     audio->setVolume(50);
 }
 
+void Bullet::increaseScore(int scoreCounter)
+{
+    scoreCounter++;
+    scoreText->setPlainText("Score: " + QString::number(scoreCounter));
+}
+
+void Bullet::decreaseHealth(int health)
+{
+    healthCounter--;
+    healthText->setPlainText("Health: " + QString::number(healthCounter));
+
+    if (health <= 0) {
+        GameOver();
+    }
+}
+
 // Move function is used to 1-  move the bullet upwards
                          // 2- Handle the collision of the bullets with enemies
 void Bullet:: move()
@@ -39,6 +56,7 @@ void Bullet:: move()
                 sound->play();
                 scene()->removeItem(colliding_items[i]);
                 scene()->removeItem(this);
+                increaseScore(scoreCounter);
                 delete colliding_items[i];
                 delete this;
                 return;
@@ -54,3 +72,4 @@ void Bullet:: move()
     }
 
 }
+

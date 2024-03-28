@@ -6,6 +6,7 @@ debug/gameover.o
 debug/main.o
 debug/mainwindow.o
 debug/player.o
+debug/score.o
 debug/moc_background.o
 debug/moc_bullet.o
 debug/moc_enemy.o
