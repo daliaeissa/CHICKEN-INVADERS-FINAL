@@ -6,6 +6,7 @@
 #include <player.h>
 #include <QMediaPlayer>
 #include <QSoundEffect>
+
 Bullet::Bullet():QObject(), QGraphicsPixmapItem() {
 
         // *******  Setting the bullets' size ********

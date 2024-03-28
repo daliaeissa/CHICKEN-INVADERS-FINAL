@@ -8,7 +8,7 @@
 #include<QPixmap>
 #include <QGraphicsPixmapItem>
 #include <QSoundEffect>
-
+#include <QMessageBox>
 
 Player::Player() {
 
@@ -17,7 +17,28 @@ Player::Player() {
     sound->setAudioOutput(audio);
     sound->setSource(QUrl::fromLocalFile("C:/Users/dalia/Desktop/Spring 2024 semester/CS2 lab/Assignments/Assignment 2 QT MULTIMEDIA CI/Pewpewpewfinal.wav"));
     audio->setVolume(50);
+    health = 3;
+    score = 0;
 
+
+}
+void Player::decrease() {
+    score--;
+    emit scoreChanged(score);
+    
+    if (health > 0) {
+        health--;
+        emit healthChanged(health);
+    }
+    
+    if (health < 1) {
+        emit gameOver(score);
+    }
+}
+
+void Player::increase() {
+    score++;
+    emit scoreChanged(score);
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
